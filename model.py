@@ -32,3 +32,4 @@ if __name__ == "__main__":
     SC.show_student('rachel')
 
     Stu1.calculate_percentage()
+    
