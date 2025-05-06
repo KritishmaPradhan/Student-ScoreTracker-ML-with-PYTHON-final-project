@@ -20,3 +20,4 @@ class Student:
         percentage = total_mks *100 / grand_total
         print(f'{percentage} %')
 
+# ................. PRACTICE CODE ...............

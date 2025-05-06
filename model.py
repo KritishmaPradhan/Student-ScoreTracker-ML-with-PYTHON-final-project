@@ -33,3 +33,5 @@ if __name__ == "__main__":
 
     Stu1.calculate_percentage()
     
+
+    # ................. PRACTICE CODE ...............

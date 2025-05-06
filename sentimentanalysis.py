@@ -10,3 +10,6 @@ result = pipe(sentence)
 
 # Print the result
 print(result)
+
+
+# ................. PRACTICE CODE ...............
