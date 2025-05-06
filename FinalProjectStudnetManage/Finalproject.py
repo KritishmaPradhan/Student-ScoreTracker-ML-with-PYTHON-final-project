@@ -1,3 +1,4 @@
+# Student tracker system . All the operations it does is listed in main_menu function
 import csv
 import os
 def main_menu():
@@ -18,12 +19,25 @@ def main_menu():
     else:
         print('INVALID CHOICE. Try again')
 
+def authentication_id(id):
+    with open('StudentDetails.csv', mode='r', newline='') as file:
+                reader = csv.DictReader(file)
+                for exists_id in reader:
+                    if exists_id["id"] == id :
+                        print("ID already exists. Try again.")
+                        return True
+    return False
+
+# adds new student in the file along with ID, name, Marks in 3subjects, calcs avg and percentage
 def add_student():
     global sub_marks
     choice = 'y'
-    data = []
+    data = []        
     while choice == 'y':
-        id = input("Enter ID: ")
+        while True:
+            id = input("Enter ID: ")
+            if not authentication_id(id):
+                break
         name = input("Enter Name: ")
         sub_marks = {}
         for individual_mks in range(3):
@@ -42,12 +56,14 @@ def add_student():
             writer.writeheader()
         writer.writerows(data)
 
+# displays all the student in the file
 def view_student():
     with open('StudentDetails.csv', mode='r', newline='') as f:
         display_student = f.readlines()  
         for student_list in display_student:                      
             print(student_list)
 
+# searches student details based on a unique student ID from file 
 def search_student():
     with open('StudentDetails.csv', mode='r', newline='') as f:
         search_student = csv.DictReader(f)
